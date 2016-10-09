@@ -10,10 +10,10 @@
 
 int main() {
 	random_device rnd;
-	AllyMonster *monsters[] = { &AllyMonster(1, 5, GOO), &AllyMonster(3, BOARD_HT, CHOKI), &AllyMonster(5, BOARD_HT, PER) };
-	EnemyMonster *emonsters[] = { &EnemyMonster(1,1, ENEMY_CHOKI), &EnemyMonster(3,1,ENEMY_GOO), &EnemyMonster(5,1,ENEMY_PER),
-		&EnemyMonster(2,1,(rnd() % 3) + 11), &EnemyMonster(4,1,(rnd() % 3) + 11), &Brother_like(3, 1, (rnd() % 3) + 11) };
-	Trap *traps[] = { &Trap((rnd() % 3) + 2,(rnd() % 3) + 2),&Trap((rnd() % 3) + 2,(rnd() % 3) + 2) ,&Trap((rnd() % 3) + 2,(rnd() % 3) + 2) };
+	AllyMonster *monsters[] = { new AllyMonster(1, 5, GOO), new AllyMonster(3, BOARD_HT, CHOKI), new AllyMonster(5, BOARD_HT, PER) };
+	EnemyMonster *emonsters[] = { new EnemyMonster(1,1, ENEMY_CHOKI), new EnemyMonster(3,1,ENEMY_GOO), new EnemyMonster(5,1,ENEMY_PER),
+		&EnemyMonster(2,1,(rnd() % 3) + 11), new EnemyMonster(4,1,(rnd() % 3) + 11), new Brother_like(3, 1, (rnd() % 3) + 11) };
+	Trap *traps[] = { new Trap((rnd() % 3) + 2,(rnd() % 3) + 2),new Trap((rnd() % 3) + 2,(rnd() % 3) + 2) ,new Trap((rnd() % 3) + 2,(rnd() % 3) + 2) };
 	Stage stage(monsters, sizeof(monsters) / sizeof(monsters[0]), emonsters, sizeof(emonsters) / sizeof(emonsters[0]), traps);
 	stage.start();
 	stage.explain();

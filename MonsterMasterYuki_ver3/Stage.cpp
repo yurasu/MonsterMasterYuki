@@ -89,10 +89,10 @@ void Stage::init_board() {
 			if (x == 0 || x == BOARD_WD + 1 ||
 				y == 0 || y == BOARD_HT + 1)
 			{
-				board[x][y] = WALL;
+				this->board[x][y] = WALL;
 			}
 			else {
-				board[x][y] = MOVE_ABLE;
+				this->board[x][y] = MOVE_ABLE;
 			}
 		}
 	}
@@ -100,6 +100,7 @@ void Stage::init_board() {
 
 	for (int i = 0; i < monsters_length; i++) {
 		pmonster[i]->init();
+		int test = i;
 		int w = pmonster[i]->pos.first;
 		int h = pmonster[i]->pos.second;
 		this->board[w][h] = pmonster[i]->getAttr();
